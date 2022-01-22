@@ -1,0 +1,37 @@
+body{
+    font-family: Segoe UI, Segoe WP, Arial, Sans-Serif;
+    background-color: #282828;
+    height: 100% !important;
+}
+
+.imagem-clima-atual{
+    height: 250px;
+    width: 250px
+}
+
+p{
+    color:royalblue;
+}
+
+.texto-grande{
+    min-width: 250px;
+}
+
+.card-clima{
+    background-color: white;
+    height: 475px
+}
+
+#primeira{
+    height: 100vh;
+}
+
+.cursive {
+    font-family: cursive;
+}
+
+.pramos{
+    color: #282828;
+    font-size: 1.3em;
+    text-align:right;
+}
