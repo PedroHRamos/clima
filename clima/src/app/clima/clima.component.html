@@ -1,38 +1,72 @@
-<div class="row">
-    <div class="col-4">
-        <p class="bold"><b>Clima atual</b></p>
+<div>
+    <div class="row">
+        <div class="col-4">
+            <p class="bold"><b>HH:MM em Cidade</b></p>
+        </div>
+        <div class="col-8">
+            <p class="bold cursive pramos">Pramos Metereologia</p>
+        </div>
     </div>
-    <div class="col-8">
-        <p class="bold cursive pramos">Pramos Metereologia</p>
+    <div class="row">
+        <div class="col-12">
+
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <p>HH:MM</p>
+
+    <div class="row">
+        <div class="col-sm-4 mt-3">
+            <img class="imagem-clima-atual" src="../assets/img/Lua.png" alt="Lua">
+        </div>
+        <div class="col-sm-8 my-auto">
+            <p class="w-25"><b>Céu:</b> Limpo</p>
+            <p class="w-25 texto-grande"><b>Sensação térmica:</b> 25º</p>
+        </div>
     </div>
+
+    <div class="row mt-4 mb-4">
+        <div class="col-3">
+            <p><b>Vento:</b> 13 Km/h</p>
+        </div>
+        <div class="col-3">
+            <p><b>Umidade:</b> xyz %</p>
+        </div>
+        <div class="col-3">
+            <p><b>Visibilidade:</b> xpto Km</p>
+        </div>
+        <div class="col-3">
+            <p><b>Pressão:</b> 1017 mb</p>
+        </div>
+    </div>
+
+    <br>
+
+    <div>
+        <p>Clique no botão para fornecer sua localização em Latitude e Longitude:</p>
+        <button onclick="getLocation()" class="btn btn-info">Clique Aqui</button>
+    </div>
+
 </div>
 
-<div class="row">
-    <div class="col-sm-4 mt-3">
-        <img class="imagem-clima-atual" src="../assets/img/Lua.png" alt="Lua">
-    </div>
-    <div class="col-sm-8 my-auto">
-        <p class="w-25"><b>Limpo</b></p>
-        <p class="w-25 texto-grande"><b>Sensação térmica:</b> 25º</p>
-    </div>
-</div>
+<!--
 
-<div class="row mt-4 mb-4">
-    <div class="col-3">
-        <p><b>Vento:</b> 13 Km/h</p>
-    </div>
-    <div class="col-3">
-        <p><b>Umidade:</b> xyz %</p>
-    </div>
-    <div class="col-3">
-        <p><b>Visibilidade:</b> xpto Km</p>
-    </div>
-    <div class="col-3">
-        <p><b>Pressão:</b> 1017 mb</p>
-    </div>
-</div>
+Usar exemplo abaixo pra pegar a lat e long do usuário
+
+<p id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</p>
+<button onclick="getLocation()">Clique Aqui</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;  
+  }
+</script>
+-->

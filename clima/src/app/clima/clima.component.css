@@ -1,6 +1,6 @@
 body{
     font-family: Segoe UI, Segoe WP, Arial, Sans-Serif;
-    background-color: #282828;
+    background-color: white;
     height: 100% !important;
 }
 
@@ -10,7 +10,7 @@ body{
 }
 
 p{
-    color:royalblue;
+    color:white;
 }
 
 .texto-grande{
@@ -18,7 +18,7 @@ p{
 }
 
 .card-clima{
-    background-color: white;
+    background-color: #282828;
     height: 475px
 }
 
@@ -31,7 +31,10 @@ p{
 }
 
 .pramos{
-    color: #282828;
+    color: white;
     font-size: 1.3em;
     text-align:right;
+}
+.btn-info{
+    background-color: #282828 !important;
 }
