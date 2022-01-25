@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment.prod';
 export class ServicoService {
 
   constructor(private http: HttpClient) { 
-    let weatherAPIKey: string = environment.apiKey;
+    this.weatherAPIKey = environment.apiKey;
   }
 
   weatherAPIKey: string; 
