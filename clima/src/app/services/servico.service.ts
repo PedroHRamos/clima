@@ -1,33 +1,20 @@
+import { JsonDTO } from './../dto/JsonDTO';
 import { Injectable } from '@angular/core';
-const weatherAPIKey = require('../../../APIKey.json').Key;
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({ 
   providedIn: 'root'
 })
 export class ServicoService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { 
+    this.weatherAPIKey = require('./APIKey.json').Key;
+  }
 
-  /*
+  weatherAPIKey: string; 
 
-    POSSÍVEIS CHAMADAS
-  
-    api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-
-    api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={API key}
-
-    api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
-
-    &lang=pt_br - Tradução pra ptbr
-    &units=metric - Conversão para metros
-    
-    Exemplo:
-    https://api.openweathermap.org/data/2.5/find?q=Belo%20Horizonte&lang=pt_br&units=metric&appid=APIKey
-
-  */
-
-    
-
-
+    obterClima(lat: number, lon: number){
+      return this.http.get<JsonDTO>(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pt_br&units=metric&appid=${this.weatherAPIKey}`);
+    }
 
 }

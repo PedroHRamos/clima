@@ -5,8 +5,9 @@ body{
 }
 
 .imagem-clima-atual{
-    height: 250px;
-    width: 250px
+    height: 100px;
+    width: 100px;
+    margin-bottom: 50px;
 }
 
 p{
@@ -19,7 +20,7 @@ p{
 
 .card-clima{
     background-color: #282828;
-    height: 475px
+    height: 485px
 }
 
 #primeira{

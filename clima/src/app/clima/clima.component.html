@@ -1,9 +1,20 @@
 <div>
     <div class="row">
-        <div class="col-4">
-            <p class="bold"><b>HH:MM em Cidade</b></p>
+        <div class="col-8" id="cidade">
+
+            <ng-template [ngIf]="isAvaliable" [ngIfElse]="cidade">
+                <div>
+                    <p class="text-capitalize"><b>{{this.jsonModel.name}} | {{this.jsonModel.main.temp}} ºC</b></p>
+                </div>
+            </ng-template>
+
+            <ng-template #cidade>
+                <div>
+                    <p><b>Cidade:</b></p>
+                </div>
+            </ng-template>
         </div>
-        <div class="col-8">
+        <div class="col-4">
             <p class="bold cursive pramos">Pramos Metereologia</p>
         </div>
     </div>
@@ -14,59 +25,128 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-4 mt-3">
-            <img class="imagem-clima-atual" src="../assets/img/Lua.png" alt="Lua">
+        <div class="col-4 mt-3">
+
+            <ng-template [ngIf]="isAvaliable" [ngIfElse]="imagem">
+                <div>
+                    <img class="imagem-clima-atual" src="https://openweathermap.org/img/w/{{this.jsonModel.weather[0].icon}}.png" alt="Lua">
+                </div>
+            </ng-template>
+
+            <ng-template #imagem>
+                <div>
+                
+                </div>
+            </ng-template>
+
+            
         </div>
-        <div class="col-sm-8 my-auto">
-            <p class="w-25"><b>Céu:</b> Limpo</p>
-            <p class="w-25 texto-grande"><b>Sensação térmica:</b> 25º</p>
+        <div class="col-8 my-auto">
+            <!--<p class="w-25"><b>{{this.jsonModel.weather[0].description}}</b></p>-->
+            <ng-template [ngIf]="isAvaliable" [ngIfElse]="ceu">
+                <div>
+                    <p class="text-capitalize"><b>{{this.jsonModel.weather[0].description}}</b></p>
+                </div>
+            </ng-template>
+
+            <ng-template #ceu>
+                <div>
+                    <p><b>Céu:</b></p>
+                </div>
+            </ng-template>
+
+            <ng-template [ngIf]="isAvaliable" [ngIfElse]="sensacao">
+                <div>
+                    <p class="text-capitalize"><b>Sensação térmica: {{this.jsonModel.main.feels_like}} ºC</b></p>
+                </div>
+            </ng-template>
+
+            <ng-template #sensacao>
+                <div>
+                    <p><b>
+                            <p class="texto-grande"><b>Sensação térmica:</b></p>
+                        </b></p>
+                </div>
+            </ng-template>
+
+
+
         </div>
     </div>
 
-    <div class="row mt-4 mb-4">
-        <div class="col-3">
-            <p><b>Vento:</b> 13 Km/h</p>
+    <div class="row mt-4">
+        <div class="col-6">
+
+            <ng-template [ngIf]="isAvaliable" [ngIfElse]="vento">
+                <div>
+                    <p class="text-capitalize"><b>Vento: {{this.jsonModel.wind.speed}} Km/h</b></p>
+                </div>
+            </ng-template>
+
+            <ng-template #vento>
+                <div>
+                    <p><b>Vento:</b></p>
+                </div>
+            </ng-template>
+
         </div>
-        <div class="col-3">
-            <p><b>Umidade:</b> xyz %</p>
+        <div class="col-6">
+
+            <ng-template [ngIf]="isAvaliable" [ngIfElse]="umidade">
+                <div>
+                    <p class="text-capitalize"><b>Umidade: {{this.jsonModel.wind.speed}} %</b></p>
+                </div>
+            </ng-template>
+
+            <ng-template #umidade>
+                <div>
+                    <p><b>Umidade:</b></p>
+                </div>
+            </ng-template>
+
+            
+        </div>        
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-6">
+
+            <ng-template [ngIf]="isAvaliable" [ngIfElse]="minima">
+                <div>
+                    <p class="text-capitalize"><b>Mínima: {{this.jsonModel.main.temp_min}} ºC</b></p>
+                </div>
+            </ng-template>
+
+            <ng-template #minima>
+                <div>
+                    <p><b>Mínima:</b></p>
+                </div>
+            </ng-template>
+
+            
         </div>
-        <div class="col-3">
-            <p><b>Visibilidade:</b> xpto Km</p>
-        </div>
-        <div class="col-3">
-            <p><b>Pressão:</b> 1017 mb</p>
+        <div class="col-6">
+            <ng-template [ngIf]="isAvaliable" [ngIfElse]="maxima">
+                <div>
+                    <p class="text-capitalize"><b>Máxima: {{this.jsonModel.main.temp_max}} ºC</b></p>
+                </div>
+            </ng-template>
+
+            <ng-template #maxima>
+                <div>
+                    <p><b>Máxima:</b></p>
+                </div>
+            </ng-template>
         </div>
     </div>
 
     <br>
+    <!-- http://openweathermap.org/img/w/10d.png -->
+    <!--<div class="" ><p>Teste {{ this.jsonModel.name }} </p></div>-->
 
     <div>
         <p>Clique no botão para fornecer sua localização em Latitude e Longitude:</p>
-        <button onclick="getLocation()" class="btn btn-info">Clique Aqui</button>
+        <button (click)="getCoord()" class="btn btn-info">Clique Aqui</button>
     </div>
 
 </div>
-
-<!--
-
-Usar exemplo abaixo pra pegar a lat e long do usuário
-
-<p id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</p>
-<button onclick="getLocation()">Clique Aqui</button>
-<script>
-var x=document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
-  }
-function showPosition(position)
-  {
-  x.innerHTML="Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;  
-  }
-</script>
--->

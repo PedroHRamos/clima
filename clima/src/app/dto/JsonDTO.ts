@@ -14,7 +14,7 @@ export class JsonDTO {
     clouds: CloudsDTO;
     dt: number;
     sys: SysDTO;
-    timezone: number:
+    timezone: number;
     id: number;
     name: string;
     cod: number;

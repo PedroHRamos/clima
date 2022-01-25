@@ -1,3 +1,5 @@
+import { ServicoService } from './../services/servico.service';
+import { JsonDTO } from './../dto/JsonDTO';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClimaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private servicoService: ServicoService) {
 
-  ngOnInit(): void {
   }
+
+  jsonModel: JsonDTO;
+  lat: number;
+  lon: number;
+  cont: number;
+  isAvaliable: boolean;
+
+  ngOnInit() {
+    this.lat = 0;
+    this.lon = 0;
+    this.cont = 0;
+    this.isAvaliable = false;
+    this.getCoord();
+  }
+
+  getCoord() {
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+
+        this.lat = position.coords.latitude;
+        this.lon = position.coords.longitude;
+
+      });
+    }
+    if (this.cont > 0) {
+      this.servicoService.obterClima(this.lat, this.lon).subscribe(data => {
+        this.jsonModel = data;
+        this.isAvaliable = true;
+        console.log(data);
+      });
+    }
+    this.cont++;
+  }
+
+
 
 }
