@@ -20,7 +20,12 @@ p{
 
 .card-clima{
     background-color: #282828;
-    height: 485px
+    height: 495px
+}
+
+.card-clima-menor{
+    background-color: #282828;
+    height: 400px
 }
 
 #primeira{

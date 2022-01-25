@@ -17,6 +17,7 @@ export class ClimaComponent implements OnInit {
   lat: number;
   lon: number;
   cont: number;
+  card: string;
   isAvaliable: boolean;
 
   ngOnInit() {
@@ -24,6 +25,7 @@ export class ClimaComponent implements OnInit {
     this.lon = 0;
     this.cont = 0;
     this.isAvaliable = false;
+    this.card = "card-clima-menor";
     this.getCoord();
   }
 
@@ -41,8 +43,8 @@ export class ClimaComponent implements OnInit {
       this.servicoService.obterClima(this.lat, this.lon).subscribe(data => {
         this.jsonModel = data;
         this.isAvaliable = true;
-        console.log(data);
       });
+      this.card = "card-clima";
     }
     this.cont++;
   }
