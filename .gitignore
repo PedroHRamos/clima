@@ -56,4 +56,3 @@ baseline.json
 # Husky
 .husky/_
 clima/src/environments/environment.prod.ts
-clima/src/environments/environment.prod.ts
