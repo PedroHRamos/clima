@@ -26,6 +26,7 @@ modules/.settings
 modules/.vscode
 .vimrc
 .nvimrc
+*environment.prod.ts
 
 # Don't check in secret files
 *secret.js
@@ -54,3 +55,5 @@ baseline.json
 
 # Husky
 .husky/_
+clima/src/environments/environment.prod.ts
+clima/src/environments/environment.prod.ts
