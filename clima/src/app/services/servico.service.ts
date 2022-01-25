@@ -1,6 +1,7 @@
 import { JsonDTO } from './../dto/JsonDTO';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({ 
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class ServicoService {
 
   constructor(private http: HttpClient) { 
-    this.weatherAPIKey = require('./APIKey.json').Key;
+    let weatherAPIKey: string = environment.apiKey;
   }
 
   weatherAPIKey: string; 
