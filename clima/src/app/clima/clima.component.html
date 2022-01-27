@@ -44,11 +44,10 @@
     </div>
 
     <div class="row border-bottom">
-        <div class="col-2"></div>
-        <div class="col-2 text-right">
+        <div class="col-6 text-center">
             <ng-template [ngIf]="isAvaliable" [ngIfElse]="minima">
                 <div>
-                    <h4 class="display-5"> {{this.jsonModel.main.temp_min}}º</h4>
+                    <h4 class="display-5"> Min: {{this.jsonModel.main.temp_min}}º</h4>
                 </div>
             </ng-template>
 
@@ -58,11 +57,10 @@
             </ng-template>
         </div>
 
-        <div class="col-4"></div>
-        <div class="col-4">
+        <div class="col-6 text-center">
             <ng-template [ngIf]="isAvaliable" [ngIfElse]="maxima">
                 <div>
-                    <h4 class="display-5"> {{this.jsonModel.main.temp_max}}º</h4>
+                    <h4 class="display-5"> Max: {{this.jsonModel.main.temp_max}}º</h4>
                 </div>
             </ng-template>
 
@@ -87,6 +85,42 @@
             </ng-template>
 
             <ng-template #vento>
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="row border-bottom">
+        <div class="col-6">
+                <div>
+                    <span> Umidade:</span>
+                </div>
+        </div>
+        <div class="col-6 text-right">
+            <ng-template [ngIf]="isAvaliable" [ngIfElse]="umidade">
+                <div>
+                    <span>{{this.jsonModel.main.humidity}} %</span>
+                </div>
+            </ng-template>
+
+            <ng-template #umidade>
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="row border-bottom">
+        <div class="col-6">
+                <div>
+                    <span> Pressão:</span>
+                </div>
+        </div>
+        <div class="col-6 text-right">
+            <ng-template [ngIf]="isAvaliable" [ngIfElse]="pressao">
+                <div>
+                    <span>{{this.jsonModel.main.pressure}} hPa</span>
+                </div>
+            </ng-template>
+
+            <ng-template #pressao>
             </ng-template>
         </div>
     </div>
