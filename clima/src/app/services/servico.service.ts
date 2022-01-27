@@ -15,7 +15,6 @@ export class ServicoService {
   weatherAPIKey: string; 
 
     obterClima(lat: number, lon: number){
-      console.log(this.weatherAPIKey);
       return this.http.get<JsonDTO>(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pt_br&units=metric&appid=${this.weatherAPIKey}`);
     }
 
